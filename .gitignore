@@ -1,0 +1,6 @@
+
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+projet-sid-479711-e7f355f3a0c9.json
