@@ -7,9 +7,9 @@ select
     cast(format_date('%Y%m%d', cast(transaction_modified_date as date))as int64) as modified_date_id,
 
     product_id,
-    quantity,
-    purchase_order_id,
-    order_id,
+    quantity
+    
+   
     
 
 from {{ ref('stg_inventory_transactions') }}

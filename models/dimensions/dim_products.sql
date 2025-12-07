@@ -2,7 +2,6 @@ select
     product_id,
     product_code,
     product_name,
-    description,
     standard_cost,
     list_price,
     reorder_level,

@@ -4,7 +4,7 @@ select
     employee_id,
     shipper_id,
     orders_status_id,
-    orders_tax_status_id,
+    
 
     -- Date keys
     
@@ -12,7 +12,7 @@ select
     cast(format_date('%Y%m%d', cast(shipped_date as date))as int64) as shipped_date_id,
 
     shipping_fee,
-    taxes,
+    taxes
     
 
 from {{ ref('stg_orders') }}

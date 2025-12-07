@@ -8,9 +8,9 @@ renamed as (
         product_id,
         quantity,
         unit_cost,
-        date_received,
+        CAST(PARSE_DATETIME('%m/%d/%Y %H:%M:%S', date_received) AS DATE) as date_received,
         posted_to_inventory,
-        inventory_id
+        inventory_id as inventory_transaction_id
     from source
 )
 select * from renamed

@@ -12,5 +12,5 @@ select
     state_province,
     zip_postal_code,
     country_region,
-    notes
+   
 from {{ ref('stg_employees') }}

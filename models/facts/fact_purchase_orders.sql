@@ -6,7 +6,6 @@ select
     -- Date keys
     cast(format_date('%Y%m%d', cast(submitted_date as date)) as int64)as submitted_date_id,
     cast(format_date('%Y%m%d', cast(creation_date as date)) as int64)as creation_date_id,
-    cast(format_date('%Y%m%d', cast(expected_date as date)) as int64) as expected_date_id,
     cast(format_date('%Y%m%d', cast(payment_date as date))as int64) as payment_date_id,
     cast(format_date('%Y%m%d', cast(approved_date as date))as int64) as approved_date_id,
 
