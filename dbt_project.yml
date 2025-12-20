@@ -35,4 +35,8 @@ models:
     bridge:
       +materialized: table
       +schema: bridge  
+
     
+    marts:
+      +materialized: table
+      +schema: marts

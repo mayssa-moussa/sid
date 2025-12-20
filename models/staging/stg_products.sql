@@ -4,6 +4,7 @@ with source as (
 renamed as (
     select
         id as product_id,
+        supplier_ids,
         product_code,
         product_name,
         description,

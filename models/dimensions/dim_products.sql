@@ -1,5 +1,6 @@
 select
     product_id,
+    supplier_ids ,
     product_code,
     product_name,
     standard_cost,

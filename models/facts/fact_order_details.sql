@@ -10,6 +10,6 @@ select
     
 
     purchase_order_id,
-    inventory_id as inventory_transaction_id 
+    --inventory_id as inventory_transaction_id 
 
 from {{ ref('stg_order_details') }}

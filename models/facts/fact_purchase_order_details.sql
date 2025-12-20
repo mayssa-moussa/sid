@@ -2,7 +2,7 @@ select
     purchase_order_detail_id,
     purchase_order_id,
     product_id,
-    inventory_transaction_id,
+    --inventory_transaction_id,
     posted_to_inventory,
 
     quantity,
