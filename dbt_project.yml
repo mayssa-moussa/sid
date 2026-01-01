@@ -32,11 +32,7 @@ models:
       +materialized: table
       +schema: facts
 
-    bridge:
-      +materialized: table
-      +schema: bridge  
-
-    
+     
     marts:
       +materialized: table
       +schema: marts

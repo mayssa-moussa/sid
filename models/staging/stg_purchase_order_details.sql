@@ -8,7 +8,7 @@ renamed as (
         product_id,
         quantity,
         unit_cost,
-        CAST(PARSE_DATETIME('%m/%d/%Y %H:%M:%S', date_received) AS DATE) as date_received,
+        {{ parse_datetime_to_date('date_received') }}   as date_received,
         posted_to_inventory,
         inventory_id as inventory_transaction_id
     from source

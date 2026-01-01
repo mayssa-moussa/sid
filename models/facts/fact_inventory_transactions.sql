@@ -4,8 +4,9 @@ select
 
     -- Date keys
     --Convertir les dates en date_id en format int AAAAMMJJ, ce qui permet de créer des relations avec Dim_Date
-    cast(format_date('%Y%m%d', cast(transaction_created_date as date))as int64)  as created_date_id,
-    cast(format_date('%Y%m%d', cast(transaction_modified_date as date))as int64) as modified_date_id,
+    {{ to_date_id('transaction_created_date ') }} as transaction_created_date_id ,
+    {{ to_date_id('transaction_modified_date ') }} as transaction_modified_date_id,
+    
 
     product_id,
     quantity

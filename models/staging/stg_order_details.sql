@@ -10,7 +10,7 @@ renamed as (
         unit_price,
         discount,
         status_id as order_details_status_id,
-        PARSE_DATE('%Y%m%d', CAST(date_allocated AS STRING)) as date_allocated,
+        {{ parse_to_date('date_allocated', '%Y%m%d') }} as date_allocated,
         purchase_order_id,
         inventory_id 
     from source
