@@ -1,0 +1,196 @@
+﻿version: 2
+
+models:
+  - name: stg_customer
+    description: "Staging des clients "
+    columns:
+      - name: customer_id
+        description: "ID client"
+        tests: [not_null, unique]
+      
+
+  - name: stg_employees
+    description: "Staging des employés."
+    columns:
+      - name: employee_id
+        description: "ID employé source"
+        tests: [not_null, unique]
+      - name: employee_email
+        description: "Email de l'employé"
+        tests: [not_null]
+      
+  - name: stg_employee_privileges
+    description: "Association employés / privilèges ."
+    columns:
+      - name: employee_id
+        description: "ID employé"
+        tests: [not_null]
+      - name: privilege_id
+        description: "ID privilège"
+        tests: [not_null]
+
+  - name: stg_inventory_transactions
+    description: "Transactions d'inventaire (staging)."
+    columns:
+      - name: inventory_transaction_id
+        description: "ID transaction inventaire"
+        tests: [not_null, unique]
+      - name: inventory_transaction_type_id 
+        description: "Type de transaction"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1,2,3,4]
+      - name: transaction_created_date
+        description: "Date de création de la transaction"
+        tests: [not_null]
+      - name: product_id
+        description: "ID produit concerné"
+        tests: [not_null]
+
+  - name: stg_inventory_transaction_types
+    description: "Types de transactions d'inventaire."
+    columns:
+      - name: inventory_transaction_type_id
+        description: "ID du type de transaction"
+        tests: [not_null, unique]
+      
+
+  - name: stg_orders
+    description: "Commandes ."
+    columns:
+      - name: order_id
+        description: "ID commande source"
+        tests: [not_null, unique]
+      - name: employee_id
+        description: "ID employé responsable"
+        tests: [not_null]
+      - name: customer_id
+        description: "ID client"
+        tests: [not_null]
+      - name: orders_status_id
+        description: "ID statut de la commande"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0,1,2,3]
+      - name: order_date
+        description: "Date de commande"
+        tests: [not_null]
+      
+
+  - name: stg_orders_status
+    description: "Statuts de commande ."
+    columns:
+      - name: orders_status_id
+        description: "ID statut"
+        tests: [not_null, unique]
+      
+
+  - name: stg_order_details
+    description: "Détails de commandes (staging)."
+    columns:
+      - name: order_detail_id
+        description: "ID détail commande"
+        tests: [not_null, unique]
+      - name: order_id
+        description: "ID commande parent"
+        tests: [not_null]
+      - name: product_id
+        description: "ID produit"
+        tests: [not_null]
+      - name: order_details_status_id
+        description: "ID statut du détail de commande"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0,1,2,3,4,5]
+      - name: quantity
+        description: "Quantité"
+        tests: [not_null]
+      - name: unit_price
+        description: "Prix unitaire"
+        tests: [not_null]
+
+  - name: stg_order_details_status
+    description: "Statuts des détails de commande."
+    columns:
+      - name: order_details_status_id
+        description: "ID statut"
+        tests: [not_null, unique]
+      
+
+  - name: stg_privileges
+    description: "Privilèges "
+    columns:
+      - name: privilege_id
+        description: "ID privilège"
+        tests: [not_null, unique]
+      
+
+  - name: stg_products
+    description: "Produits ."
+    columns:
+      - name: product_id
+        description: "ID produit"
+        tests: [not_null, unique]
+      
+
+  - name: stg_purchase_orders
+    description: "Commandes fournisseurs ."
+    columns:
+      - name: purchase_order_id
+        description: "ID commande fournisseur"
+        tests: [not_null, unique]
+      - name: supplier_id
+        description: "ID fournisseur"
+        tests: [not_null]
+      - name: purchase_order_status_id
+        description: "ID statut de la commande fournisseur"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0,1,2,3,4,5]
+      
+
+  - name: stg_purchase_order_details
+    description: "Détails commandes fournisseurs ."
+    columns:
+      - name: purchase_order_detail_id
+        description: "ID détail commande fournisseur"
+        tests: [not_null, unique]
+      - name: purchase_order_id
+        description: "ID commande fournisseur parent"
+        tests: [not_null]
+      - name: product_id
+        description: "ID produit"
+        tests: [not_null]
+
+  - name: stg_purchase_order_status
+    description: "Statuts des commandes fournisseurs ."
+    columns:
+      - name: purchase_order_status_id
+        description: "ID statut"
+        tests: [not_null, unique]
+     
+
+
+  - name: stg_shippers
+    description: "Transporteurs ."
+    columns:
+      - name: shipper_id
+        description: "ID transporteur"
+        tests: [not_null, unique]
+     
+
+  - name: stg_suppliers
+    description: "Fournisseurs ."
+    columns:
+      - name: supplier_id
+        description: "ID fournisseur"
+        tests: [not_null, unique]
+      

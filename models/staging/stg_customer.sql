@@ -8,7 +8,6 @@ renamed as (
         company as company_name,
         last_name,
         first_name,
-        email_address,
         job_title,
         business_phone,
         fax_number,

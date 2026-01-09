@@ -19,9 +19,7 @@ renamed as (
         taxes,
         payment_type,
         {{ parse_datetime_to_date('paid_date') }} as paid_date,
-        notes,
         tax_rate,
-        tax_status_id as orders_tax_status_id,
         status_id as orders_status_id
     from source
 )

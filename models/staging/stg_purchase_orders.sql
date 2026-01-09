@@ -9,12 +9,11 @@ renamed as (
         
         {{ parse_datetime_to_date('submitted_date') }} as submitted_date,
         {{ parse_datetime_to_date('creation_date') }} as creation_date,
-        {{ parse_datetime_to_date('expected_date') }} as expected_date,
+        
         status_id as purchase_order_status_id,
         
         shipping_fee,
         taxes,
-        {{ parse_datetime_to_date('payment_date') }} as payment_date,
         payment_amount,
         payment_method,
         notes,

@@ -5,8 +5,8 @@ with orders as (
         employee_id,
         shipper_id,
         orders_status_id,
-        {{ to_date_id('order_date ') }} as order_date_id,
-        {{ to_date_id('shipped_date ') }} as shipped_date_id,
+        {{ to_date_id('order_date') }} as order_date_id,
+        {{ to_date_id('shipped_date') }} as shipped_date_id,
         shipping_fee,
         taxes
     from {{ ref('stg_orders') }}

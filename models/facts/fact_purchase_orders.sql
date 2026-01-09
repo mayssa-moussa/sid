@@ -3,10 +3,10 @@ with purchase_orders as (
         purchase_order_id,
         supplier_id,
         created_by_employee_id,
-        {{ to_date_id('submitted_date ') }} as submitted_date_id,
-        {{ to_date_id('creation_date ') }} as creation_date_id,
-        {{ to_date_id('payment_date ') }} as payment_date_id,
-        {{ to_date_id('approved_date ') }} as approved_date_id,
+        {{ to_date_id('submitted_date') }} as submitted_date_id,
+        {{ to_date_id('creation_date') }} as creation_date_id,
+        {{ to_date_id('payment_date') }} as payment_date_id,
+        {{ to_date_id('approved_date') }} as approved_date_id,
         purchase_order_status_id,
         shipping_fee,
         taxes,
@@ -27,7 +27,7 @@ purchase_order_details as (
         quantity,
         unit_cost,
         
-        {{ to_date_id('date_received ') }} as date_received_id
+        {{ to_date_id('date_received') }} as date_received_id
     from {{ ref('stg_purchase_order_details') }}
 )
 
