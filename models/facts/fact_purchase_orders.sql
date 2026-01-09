@@ -5,7 +5,7 @@ with purchase_orders as (
         created_by_employee_id,
         {{ to_date_id('submitted_date') }} as submitted_date_id,
         {{ to_date_id('creation_date') }} as creation_date_id,
-        {{ to_date_id('payment_date') }} as payment_date_id,
+
         {{ to_date_id('approved_date') }} as approved_date_id,
         purchase_order_status_id,
         shipping_fee,
@@ -45,7 +45,6 @@ select
     po.creation_date_id,
     po.submitted_date_id,
     po.approved_date_id,
-    po.payment_date_id,
     pod.date_received_id,
 
     -- Produit
